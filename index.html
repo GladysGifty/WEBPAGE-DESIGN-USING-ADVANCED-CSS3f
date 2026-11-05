@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>S. Gladys Gifty - Web Technology Lab</title>
+
+<style>
+
+body {
+    margin: 0;
+    background-color: #eeeeee;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 92%;
+    margin: 10px auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #555;
+    border: 12px solid transparent;
+    border-image: url("flower.jpg") 30 round;
+}
+
+header {
+    height: 145px;
+    background-image:
+        url("flower.jpg"),
+        linear-gradient(to right, #174a7e, #4d9bd3);
+    background-position: left top, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 75px 75px, cover;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin-top: 35px;
+    margin-bottom: 8px;
+    font-size: 25px;
+    text-shadow: 2px 2px 4px #333;
+}
+
+header p {
+    font-size: 13px;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    background: linear-gradient(to right, #eeeeee, #bcbcbc, #eeeeee);
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #888;
+}
+
+nav a {
+    flex: 1;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+    font-weight: bold;
+    border-right: 1px solid #999;
+    transition: 0.3s;
+}
+
+nav a:last-child {
+    border-right: none;
+}
+
+nav a:hover {
+    background-color: #1769aa;
+    color: white;
+}
+
+.about {
+    background-color: #f8b9c4;
+    padding: 18px;
+    text-align: center;
+    border-radius: 0 0 12px 12px;
+}
+
+.about h2 {
+    margin: 5px;
+    font-size: 20px;
+}
+
+.about p {
+    margin: 8px;
+    font-size: 13px;
+}
+
+.hobbies {
+    padding: 15px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.hobby-container {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.hobby {
+    width: 28%;
+    background-color: #e1f0fa;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 2px 3px 8px #999;
+    border: 2px solid #6aaed6;
+}
+
+.hobby img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #1769aa;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.hobby h3 {
+    color: #1769aa;
+    font-size: 15px;
+}
+
+.hobby p {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.hobby:hover img {
+    transform: scale(1.05);
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px #aaa;
+}
+
+th {
+    background-color: #1769aa;
+    color: white;
+    padding: 9px;
+}
+
+td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+tr:nth-child(odd) {
+    background-color: #d9ecff;
+}
+
+tr:nth-child(even) {
+    background-color: #b9dcf7;
+}
+
+tr:hover {
+    background-color: #ffe0b2;
+}
+
+.itemImg {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #1769aa;
+    opacity: 0.85;
+    transition: 0.5s;
+}
+
+.itemName:hover + td .itemImg {
+    opacity: 1;
+}
+
+.form-area {
+    background-image:
+        linear-gradient(
+            rgba(30, 70, 100, 0.75),
+            rgba(30, 70, 100, 0.75)
+        ),
+        url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.form-box {
+    width: 220px;
+    background-color: white;
+    padding: 18px;
+    border-radius: 15px;
+    box-shadow: 4px 5px 12px #222;
+}
+
+.form-box h2 {
+    text-align: center;
+    color: #1769aa;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.form-box label {
+    font-size: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 9px 0;
+    box-sizing: border-box;
+    border: 2px solid #cccccc;
+    border-radius: 6px;
+}
+
+input:required {
+    border: 2px solid #1769aa;
+}
+
+input:focus {
+    border: 3px solid #e91e63;
+    background-color: #fff0f5;
+    outline: none;
+}
+
+input[type="email"]:valid {
+    color: blue;
+    background-color: #e8f5e9;
+}
+
+input[type="email"]:invalid {
+    color: red;
+}
+
+button {
+    width: 100%;
+    padding: 8px;
+    background-color: #1769aa;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d47a1;
+}
+
+footer {
+    background-color: #ffe5c2;
+    padding: 12px;
+    font-size: 16px;
+    color: #222;
+}
+
+@media screen and (max-width: 650px) {
+
+    .hobby-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hobby {
+        width: 80%;
+    }
+
+    .form-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-box {
+        width: 75%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 11px;
+        padding: 10px 5px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>S. Gladys Gifty</h1>
+
+<p>My Hobbies & Interests</p>
+
+</header>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">About</a>
+
+<a href="#">Hobbies</a>
+
+<a href="#">Others</a>
+
+</nav>
+
+<section class="about">
+
+<h2>Welcome to My Webpage</h2>
+
+<p>
+Hello! I am S. Gladys Gifty.
+This webpage shows some of my favourite hobbies
+and interests.
+</p>
+
+</section>
+
+<section class="hobbies">
+
+<div class="hobby-container">
+
+<div class="hobby">
+
+<img src="drawing.jpg">
+
+<h3>Drawing</h3>
+
+<p>
+I enjoy drawing and creating
+different sketches and designs.
+</p>
+
+</div>
+
+<div class="hobby">
+
+<img src="music.webp">
+
+<h3>Music</h3>
+
+<p>
+I enjoy listening to music
+during my free time.
+</p>
+
+</div>
+
+<div class="hobby">
+
+<img src="photography.webp">
+
+<h3>Photography</h3>
+
+<p>
+I enjoy photography and
+capturing interesting moments.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<table>
+
+<tr>
+
+<th>Hobby</th>
+
+<th>Image</th>
+
+<th>Description</th>
+
+</tr>
+
+<tr>
+
+<td class="itemName">
+Drawing
+</td>
+
+<td>
+
+<img src="drawing.jpg" class="itemImg">
+
+</td>
+
+<td>
+Sketching and creating
+different designs.
+</td>
+
+</tr>
+
+<tr>
+
+<td class="itemName">
+Music
+</td>
+
+<td>
+
+<img src="music.webp" class="itemImg">
+
+</td>
+
+<td>
+Listening to music
+in my free time.
+</td>
+
+</tr>
+
+<tr>
+
+<td class="itemName">
+Photography
+</td>
+
+<td>
+
+<img src="photography.webp" class="itemImg">
+
+</td>
+
+<td>
+Capturing interesting
+moments and memories.
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section class="form-area">
+
+<div class="form-box">
+
+<h2>Sign In</h2>
+
+<form>
+
+<label>Username</label>
+
+<input
+type="text"
+placeholder="Enter Username"
+required
+>
+
+<label>Password</label>
+
+<input
+type="password"
+placeholder="Enter Password"
+required
+>
+
+<button type="submit">
+Sign In
+</button>
+
+</form>
+
+</div>
+
+<div class="form-box">
+
+<h2>Sign Up</h2>
+
+<form>
+
+<label>Name</label>
+
+<input
+type="text"
+placeholder="Enter Name"
+required
+>
+
+<label>Email</label>
+
+<input
+type="email"
+placeholder="Enter Email"
+required
+>
+
+<label>Password</label>
+
+<input
+type="password"
+placeholder="Enter Password"
+required
+>
+
+<button type="submit">
+Sign Up
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+
+
+<br>
+
+© 2026 - S. Gladys Gifty - Web Technology Lab.
+All Rights Reserved.
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
